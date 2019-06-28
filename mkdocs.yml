@@ -1,0 +1,33 @@
+site_name: 王礼萍
+theme: cyborg
+repo_url: https://github.com/wangkingkingking/
+site_author: Liping Wang
+nav:
+- Home: index.md
+- AI: 
+  #- 概述: ai/overview.md
+  - 计算机视觉: ai/cv/overview.md
+  - 机器学习: ai/machine_learning/overview.md
+  - 数据科学: ai/data_science/overview.md
+- Python&pytorch : 
+  #- 概述: python_pytorch/overview.md
+  - python: python_pytorch/python/overview.md
+  - pytorch: python_pytorch/pytorch/overview.md
+  - 爬虫: python_pytorch/crawler/overview.md
+- 数学:
+  #- 概述: math/overview.md
+  - matrix: math/matrix/overview.md
+  - optimization: math/optimization/overview.md
+- 编程:
+  - 语言: programming/minor_languages/overview.md 
+  - tex: programming/tex/overview.md
+- Linux&mac: 
+  #- 概述: linux_mac/overview.md
+  - mac: linux_mac/mac/overview.md
+  - Linux: linux_mac/linux/overview.md
+#- 随笔: essays/overview.md
+#- 远方: distance/overview.md
+
+
+markdown_extensions:
+  - pymdownx.arithmatex
