@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Liping Wang">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Logging - 王礼萍</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">王礼萍</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../ai/cv/overview/" class="dropdown-item">计算机视觉</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/machine_learning/overview/" class="dropdown-item">机器学习</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/data_science/overview/" class="dropdown-item">数据科学</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python&pytorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">python</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/overview/" class="dropdown-item">pytorch</a>
+</li>
+                                    
+<li>
+    <a href="../../crawler/overview/" class="dropdown-item">爬虫</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">数学 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../math/matrix/overview/" class="dropdown-item">matrix</a>
+</li>
+                                    
+<li>
+    <a href="../../../math/optimization/overview/" class="dropdown-item">optimization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">编程 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../programming/minor_languages/overview/" class="dropdown-item">语言</a>
+</li>
+                                    
+<li>
+    <a href="../../../programming/tex/overview/" class="dropdown-item">tex</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&mac <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../linux_mac/mac/overview/" class="dropdown-item">mac</a>
+</li>
+                                    
+<li>
+    <a href="../../../linux_mac/linux/overview/" class="dropdown-item">Linux</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/wangkingkingking/edit/master/docs/python_pytorch/python/logging.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">低级用法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">高级用法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>刚开始写程序, 只会在需要输出结果的时候 print 下, 然后在 debug 时, 临时添加些 print 语句. 慢慢地, 我们会开始考虑程序的鲁棒性以及用户的使用体验, 需要输出一些日志信息, 这时候就需要一个日志管理系统了. python 标准库中的 logging 模块就是我们需要的, 本文对其使用加以介绍.</p>
+<p>日志信息根据严重程度, 分为</p>
+<ul>
+<li>debug</li>
+<li>info</li>
+<li>warnning</li>
+<li>error</li>
+<li>critical</li>
+</ul>
+<p>但不是所有的信息都会输出, 有个 level 的设定, 只有不低于该 level 的信息才会被输出, 默认的 level 为 warnning.</p>
+<h2 id="_1">低级用法</h2>
+<h3 id="_2">配置</h3>
+<p>在程序正式开始之前, 我们需要完成一些设置, 一般包括如下内容</p>
+<ul>
+<li>输出文件名</li>
+<li>level</li>
+<li>输出格式</li>
+</ul>
+<p>配置有两种方法</p>
+<pre><code>#第一种
+logging.config(filename='xxx.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
+
+#第二种
+logging.setLevel(logging.DEBUG)
+</code></pre>
+<h3 id="_3">简单使用</h3>
+<p>在程序中通过 logging.info, logging.warnning 等函数就能简单使用</p>
+<h2 id="_4">高级用法</h2>
+<p>之前介绍的低级用法中, 一般是程序只有个 .py 文件, 在程序中通过 logging. error( )就可以输出相关日志信息. 但是实际中的程序可能有多个文件, 彼此还有层级关系. 如果只是在每个 .py 文件中单独输出日志信息, 那将非常混乱, 而且没有任何逻辑关系. . 所谓的高级用法主要是为了解决这种情况, 即多模块使用.</p>
+<p>首先需要弄清楚 logging 中的四类对象</p>
+<ul>
+<li>logger, 最核心的类, 可以理解为日志发生器</li>
+<li>handler, 对于不同 level 的日志信息, 我们希望输出到不同地方, 比如只希望将错误输出到屏幕上, 这就需要用 handler 来解决</li>
+<li>filter</li>
+<li>formatter, 用于设置输出字符串格式</li>
+</ul>
+<p>四类对象之间的关系为</p>
+<ul>
+<li>logger 可以有多个 handler 和 formatter</li>
+<li>handler 需要 setFormatter</li>
+<li>Handler 可以有多个 formatter</li>
+</ul>
+<h3 id="logger">logger</h3>
+<p>logger 的引入就是为了实现多模块日志, 通过让 logger 具有继承关系, 子 logger 默认配置和父 logger 相同. logger 的继承关系是通过名称隐式完成. 所谓的隐式是指: 创建 logger 时, 你不需要显式声明其父 logger.</p>
+<pre><code>main_logger = logging.getLogger('main')
+sub_logger = logging.getLogger('main.sub')
+#这样 sub_logger 就是 main_logger 的子 logger了
+</code></pre>
+<p>logger 的接口分两类, 一类是配置功能</p>
+<ul>
+<li>Logger.setLevel( )</li>
+<li>Logger.addHandler( ) Logger.removeHandler( )</li>
+<li>Logger.addFilter( ) Logger.removeFilter( )</li>
+</ul>
+<p>另一类就是发送具体日志消息</p>
+<ul>
+<li>Logger.debug( )</li>
+<li>Logger.info( )</li>
+<li>Logger.warn( )</li>
+<li>Logger.error( )</li>
+<li>Logger.critical( )</li>
+</ul>
+<p>logger 调用上述函数后, 将日志的严重程度与 logger 自身的 level 对比, 不低于其 level 的消息会被分发到 handler, 每个 handler 也有其 level, 不低于其 level 的消息就会被输出. 注意, 这样每条消息可能被输出到多个日志文件中, 因为不同 handler 之间是相互不干扰的, 被一个 handler 输出后, 还是会被其他 handler 处理.</p>
+<h3 id="handler">handler</h3>
+<p>handler 是日志最终的输出者, 决定了消息的最终去向, 一般和文件或者标准输出设备等关联, 常用的有</p>
+<ul>
+<li>logging.FileHandler( )</li>
+<li>logging.StreamHandler( )</li>
+</ul>
+<h3 id="formatter">formatter</h3>
+<p>之前说过 handler 是日志消息具体的输出者, 既然需要输出, 就会涉及到输出格式, 例如:</p>
+<p>```python 
+import logging
+import sys</p>
+<p>logger = logging.getLogger(<strong>name</strong>)
+logger.setLevel(logging.INFO)
+ch = logging.StreamHandler(stream=sys.stdout)
+ch.setLevel(logging.DEBUG)
+logger.addHandler(ch)
+ch1 = logging.StreamHandler(stream=sys.stdout)
+ch1.setLevel(logging.INFO)
+logger.addHandler(ch1)
+fmt = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(fmt)
+ch1.setFormatter(fmt)
+logger.info('hi')
+```</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

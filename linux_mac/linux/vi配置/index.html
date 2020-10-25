@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Liping Wang">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>vi配置 - 王礼萍</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">王礼萍</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../ai/cv/overview/" class="dropdown-item">计算机视觉</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/machine_learning/overview/" class="dropdown-item">机器学习</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/data_science/overview/" class="dropdown-item">数据科学</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python&pytorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../python_pytorch/python/overview/" class="dropdown-item">python</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/pytorch/overview/" class="dropdown-item">pytorch</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/crawler/overview/" class="dropdown-item">爬虫</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">数学 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../math/matrix/overview/" class="dropdown-item">matrix</a>
+</li>
+                                    
+<li>
+    <a href="../../../math/optimization/overview/" class="dropdown-item">optimization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">编程 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../programming/minor_languages/overview/" class="dropdown-item">语言</a>
+</li>
+                                    
+<li>
+    <a href="../../../programming/tex/overview/" class="dropdown-item">tex</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&mac <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../mac/overview/" class="dropdown-item">mac</a>
+</li>
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">Linux</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/wangkingkingking/edit/master/docs/linux_mac/linux/vi配置.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>最近来组里实习, 需要在服务器上写程序, 经过考察, 最好的方式就是直接在服务器上用 vi/vim 写, 为了方便以后去别的环境再配置, 所以记录下安装过程. </p>
+<!--more-->
+
+<h3 id="1install-vivim-without-sudo">1.install vi/vim without sudo</h3>
+<p>服务器上的 vi 版本太老, 有些插件安装不了, 所以第一步就要自己安装一个较高版本的 vi/vim. </p>
+<pre><code class="language-shell">wget ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
+tar -xvf vim-8.1.tar.bz2
+cd vim-8.1
+./configure --enable-pythoninterp --with-features=huge --with-python-config-dir=/usr/bin/python --prefix=$HOME/.local
+make 
+make install 
+</code></pre>
+<p>也可以去 ftp://ftp.vim.org/pub/vim/unix/ 寻找别的版本.   </p>
+<p><code>--prefix=$HOME/.local</code> 是因为没有 sudo 权限, 所以无法安装在 /usr/bin 目录下. </p>
+<p>vim 会被安装在 ~/.local/bin 中</p>
+<p>在 ~/.bashrc 中加上一行  </p>
+<p><code>export PATH=/lustre/home/lpwang/.local/bin:$PATH</code> </p>
+<p>就可以在任意路径中调用 vi/vim 了. </p>
+<h3 id="2-vimrc">2.  配置 .vimrc</h3>
+<p>第一步中安装的 vi/vim与原先的 vi/vim 共用 ~/.vimrc. 为了方便配置, 需要更改下, 以便不同版本的 vi 启用不同的配置.  将原先的 .vimrc 复制成 .vimrc7, 然后将 .vimrc 改成如下</p>
+<p>```shell 
+if v:version &gt;=800
+    source ~/.vimrc8
+elseif v:version &gt;=700
+    source ~/.vimrc7
+endif</p>
+<pre><code>
+这样, 你就可以在 .vimrc8 中进行你自己的 vi/vim 配置了. 
+
+### 3. 安装 Vundle 
+
+先安装插件管理工具 Vundle, 然后利用Vundle 再安装别的插件. 
+
+```shell 
+git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+</code></pre>
+<p>然后, 将如下 vundle 的配置信息写在 .vrimrc8 的最前面 </p>
+<pre><code>set nocompatible              &quot; required
+filetype off                  &quot; required
+
+&quot;set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+&quot;
+&quot; &quot; alternatively, pass a path where Vundle should install plugins
+&quot; &quot;call vundle#begin('~/some/path/here')
+&quot;
+&quot; &quot; let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+&quot;Plugin 'Valloric/YouCompleteMe'
+&quot; &quot; add all your plugins here (note older versions of Vundle
+&quot; &quot; used Bundle instead of Plugin)
+&quot;
+&quot; &quot; ...
+&quot;
+&quot; &quot; All of your Plugins must be added before the following line
+call vundle#end()            &quot; required
+ filetype plugin indent on    &quot; required
+&quot;
+&quot;
+
+</code></pre>
+<p>以后安装插件时, 只需仿照 Plugin 'Valloric/YouCompleteMe' 写就行, 写完之后, 打开 vi, 输入 <code>:PluginInstall</code> 等待安装就行, 有时会很慢, 比如 Valloric/YouCompleteMe, 因为需要下载很多东西. </p>
+<p>后面再结合自己的需求安装插件就行, 贴下自己的 .vimrc8 吧</p>
+<pre><code>set nocompatible              &quot; required
+filetype off                  &quot; required
+
+&quot;set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+&quot;
+&quot; &quot; alternatively, pass a path where Vundle should install plugins
+&quot; &quot;call vundle#begin('~/some/path/here')
+&quot;
+&quot; &quot; let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+&quot;Plugin 'Valloric/YouCompleteMe'
+&quot; &quot; add all your plugins here (note older versions of Vundle
+&quot; &quot; used Bundle instead of Plugin)
+&quot;
+&quot; &quot; ...
+&quot;
+&quot; &quot; All of your Plugins must be added before the following line
+call vundle#end()            &quot; required
+ filetype plugin indent on    &quot; required
+&quot;
+&quot;
+syntax on
+syntax enable
+set nu
+set expandtab
+set tabstop=4
+set autoindent
+set encoding=utf-8
+set backspace=2
+set shiftwidth=4  
+
+
+highlight Comment ctermfg=green guifg=green
+
+
+&quot; configure jedi-vim
+let g:jedi#completions_command = &quot;&lt;C-N&gt;&quot;
+autocmd FileType python setlocal completeopt-=preview &quot;&quot; not show pydoc documentatio
+</code></pre>
+<p>装过 YouCompleteMe, 特麻烦, 而且启动 vi 变的特别慢, 后来就不用了. </p>
+<h3 id="4">4.安装插件</h3>
+<p>插件类型有好几种, 如果在 github 上维护, 可以通过 Vundle 安装. 有的只提供了一个 <em>.vim文件, 比如 python_fold.vim, 这时只需要将 </em>.vim文件放在 ~/.vim/ftplugin 目录下即可. </p>
+<h3 id="5">5. 插件使用</h3>
+<ol>
+<li>python_fold </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>zo</strong></th>
+<th>將游標所在處的折疊打開。<strong>o</strong>pen。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>zc</strong></td>
+<td>將游標所在處已打開的內容再度折疊起來。<strong>c</strong>lose。</td>
+</tr>
+<tr>
+<td><strong>zr</strong></td>
+<td>將全文的所有折疊依層次通通打開。<strong>r</strong>educe。</td>
+</tr>
+<tr>
+<td><strong>zm</strong></td>
+<td>將全文已打開的折疊依層次通通再折疊起來。<strong>m</strong>ore。</td>
+</tr>
+<tr>
+<td><strong>zR</strong></td>
+<td>作用和 zr 同，但會打開含巢狀折疊（折疊中又還有折疊）的所有折疊。</td>
+</tr>
+<tr>
+<td><strong>zM</strong></td>
+<td>作用和 zm 同，但對於巢狀折疊亦有作用。</td>
+</tr>
+<tr>
+<td><strong>zi</strong></td>
+<td>這是個切換，是折疊與不折疊指令間的切換。</td>
+</tr>
+<tr>
+<td><strong>zn</strong></td>
+<td>打開全文的所有折疊。fold <strong>n</strong>one。</td>
+</tr>
+<tr>
+<td><strong>zN</strong></td>
+<td>這是 zn 的相對指令，回復所有的折疊。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+ 王礼萍  原创<br>
+
+ 更多内容请访问 https://wanglp.site <br></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

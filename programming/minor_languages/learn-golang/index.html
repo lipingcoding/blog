@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Liping Wang">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>读 < The go programming language > - 王礼萍</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">王礼萍</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../ai/cv/overview/" class="dropdown-item">计算机视觉</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/machine_learning/overview/" class="dropdown-item">机器学习</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/data_science/overview/" class="dropdown-item">数据科学</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python&pytorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../python_pytorch/python/overview/" class="dropdown-item">python</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/pytorch/overview/" class="dropdown-item">pytorch</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/crawler/overview/" class="dropdown-item">爬虫</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">数学 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../math/matrix/overview/" class="dropdown-item">matrix</a>
+</li>
+                                    
+<li>
+    <a href="../../../math/optimization/overview/" class="dropdown-item">optimization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">编程 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">语言</a>
+</li>
+                                    
+<li>
+    <a href="../../tex/overview/" class="dropdown-item">tex</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&mac <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../linux_mac/mac/overview/" class="dropdown-item">mac</a>
+</li>
+                                    
+<li>
+    <a href="../../../linux_mac/linux/overview/" class="dropdown-item">Linux</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/wangkingkingking/edit/master/docs/programming/minor_languages/learn-golang.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#chapter-1-introduction" class="nav-link">Chapter 1 Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chapter-2-programs-structures" class="nav-link">Chapter 2 Programs structures</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chapter-3-basic-types" class="nav-link">Chapter 3 basic types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chapter-4-composite-types" class="nav-link">Chapter 4 Composite Types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#remarks" class="nav-link">Remarks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="chapter-1-introduction">Chapter 1 Introduction</h1>
+<p>Some simple examples to get you familiar with go.</p>
+<!--more-->
+
+<h1 id="chapter-2-programs-structures">Chapter 2 Programs structures</h1>
+<h3 id="21-names">2.1 Names</h3>
+<p>与其它语言一样, 支持字母、数字、下划线, 但不能数字开头. 但是这里是针对 utf-8 来说的. 但最好还是用英文. </p>
+<h3 id="22">2.2 声明</h3>
+<ul>
+<li>分为 var, const, type, func. 分别是变量、常量、自定义类型、自定义函数</li>
+</ul>
+<h3 id="23">2.3 变量</h3>
+<h5 id="231">2.3.1声明</h5>
+<p>四种声明方式</p>
+<ol>
+<li>var <em>name</em> <em>type</em> = <em>expression</em></li>
+<li>var <em>name</em> <em>type</em> </li>
+<li>var  <em>type</em> = <em>expression</em></li>
+<li><em>name</em> := <em>expression</em></li>
+</ol>
+<p>第 4 种只能用于 function 内部. 第 2 种用默认初始化, 一般为 zero-value. 第 3 种自动推断类型. </p>
+<h5 id="232">2.3.2</h5>
+<p>Pointer 类型和 C 的几乎一样</p>
+<h5 id="233-new">2.3.3 new</h5>
+<p>new(<em>type</em>) 生成一个无名的 type 类型, 并返回<strong>指针</strong> . </p>
+<h5 id="234">2.3.4 生存期</h5>
+<p>Package-level var: 不在函数体内声明, 在整个package 内可见, 生存期为 the entire execution of the program </p>
+<p>local var: 在函数体内声明, 生存期从被声明开始, until it becomes unreachable, 这涉及到go的回收机制, 比较复杂. </p>
+<h3 id="24">2.4 赋值</h3>
+<p>支持 tuple-assignment, 例如 <code>x,y = y, x</code> </p>
+<h3 id="25">2.5别名</h3>
+<p>类似 c++ </p>
+<h3 id="26-packages-and-files">2.6 packages and files</h3>
+<p>go file 以.go 为后辍, 结构如下</p>
+<pre><code>package main // other name is ok to create own package 
+import (
+    &quot;fmt&quot;
+    &quot;os&quot;
+)
+
+
+</code></pre>
+<p>go 的一个特点是不仅告诉你可以做什么, 还告诉你不可以做什么. 如果你引入了一个 package , 但从来没用, 会报错. </p>
+<h5 id="package-initalization">package initalization</h5>
+<ul>
+<li>优先根据依赖关系, 然后结合声明的顺序, 依次初始化. </li>
+<li>一个 .go file 里可以有若干个 init( ) 函数, 不可显式调用, 会根据声明顺序, 依次自动调用.</li>
+</ul>
+<h1 id="chapter-3-basic-types">Chapter 3 basic types</h1>
+<p>类似 C++, 需要再查阅</p>
+<h1 id="chapter-4-composite-types">Chapter 4 Composite Types</h1>
+<h3 id="41-array">4.1 Array</h3>
+<p>类似 C++</p>
+<h3 id="42">4.2 切片</h3>
+<p>类似 python </p>
+<h3 id="43-map">4.3 Map</h3>
+<p>map is actually a reference to hash-table </p>
+<p>声明方式</p>
+<ul>
+<li><em>map_name</em>  : = make(map[ <em>key_type</em>] <em>value_type</em>)</li>
+<li><em>map_name</em>  : = map[ <em>key_type</em>] <em>value_type</em> { }</li>
+</ul>
+<h1 id="remarks">Remarks</h1>
+<ul>
+<li>a++ 不返回值, 不能用来给别的变量赋值.</li>
+<li>Package-level的变量、type、function等如果首字母大写, 说明被 export 了, scope 从该package 内所有 file 变成其它package 也可见</li>
+</ul>
+<hr>
+ 王礼萍  原创<br>
+ 更多内容请访问 https://wanglp.site <br></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

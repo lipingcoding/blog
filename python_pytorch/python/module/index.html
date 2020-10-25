@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Liping Wang">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Module - 王礼萍</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">王礼萍</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../ai/cv/overview/" class="dropdown-item">计算机视觉</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/machine_learning/overview/" class="dropdown-item">机器学习</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/data_science/overview/" class="dropdown-item">数据科学</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python&pytorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">python</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/overview/" class="dropdown-item">pytorch</a>
+</li>
+                                    
+<li>
+    <a href="../../crawler/overview/" class="dropdown-item">爬虫</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">数学 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../math/matrix/overview/" class="dropdown-item">matrix</a>
+</li>
+                                    
+<li>
+    <a href="../../../math/optimization/overview/" class="dropdown-item">optimization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">编程 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../programming/minor_languages/overview/" class="dropdown-item">语言</a>
+</li>
+                                    
+<li>
+    <a href="../../../programming/tex/overview/" class="dropdown-item">tex</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&mac <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../linux_mac/mac/overview/" class="dropdown-item">mac</a>
+</li>
+                                    
+<li>
+    <a href="../../../linux_mac/linux/overview/" class="dropdown-item">Linux</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/wangkingkingking/edit/master/docs/python_pytorch/python/module.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            
+            
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>本文系统总结下 python 的模块(module), 包(package)的相关知识.</p>
+<h3 id="_1">先明确定义:</h3>
+<ol>
+<li>Module/ 模块, 就是一个包含了定义和声明的 .py 文件, 本身也可以做为脚本运行.</li>
+<li>package/包, 就是将若干 moudle 和package 组合起来, 特点是目录里必须有一个 ‘<strong>init</strong>.py’ 文件.</li>
+</ol>
+<h3 id="_2">模块使用</h3>
+<p>python 交互式命令行或者程序本身就是一个特殊的 module, 叫做 main module. import 模块名(不包括.py) 相当于把该模块中定义的内容导入到 main 中, 实现代码复用的目的.</p>
+<pre><code># 假如有一个 moudel 文件: mymodule.py
+import mymodule
+from mymodule import fun1, fun2, var1
+from mymodule import * # 一次性导入所有, 除了以下划线开头的
+</code></pre>
+<h5 id="_3">模块搜索路径</h5>
+<p>首先在按照 sys.path 进行搜索, sys.path 由如下三部分组成, 不保证先后顺序.</p>
+<ul>
+<li>当前目录</li>
+<li>系统变量 PYTHONPATH</li>
+<li>python 安装过程有关</li>
+</ul>
+<p>可以更改</p>
+<pre><code>sys.path.append('/ufs/guido/lib/python')
+</code></pre>
+<h3 id="_4">创建模块</h3>
+<p>模块的创建方式与普通脚本的写法没有区别. 在模块脚本内部, 模块名可以通过 ‘<strong>name</strong>‘ 被访问.</p>
+<h3 id="_5">自定义包</h3>
+<p>算定义包相比写模块就多了init 文件’<strong>init</strong>.py’ . init 文件可以为空, 但必须要有.</p>
+<p>对于包 A 来说, init 文件有如下功能:</p>
+<ul>
+<li>定义 <code>__all__</code> , 指定 from A import * 到底会 import 什么</li>
+</ul>
+<p>如果没有定义的话, 只会 import init 文件中定义的或者导入的模块</p>
+<ul>
+<li>
+<p>定义一些 package-level 的变量,函数和类, 包 A 的使用者可以通过 形如A.moudle, A.var 等形式访问</p>
+</li>
+<li>
+<p>将子包,子模块甚至是其它包中的内容导入到 package-level , 使得用户不必关心相关内容的真实定义位置.</p>
+</li>
+</ul>
+<h3 id="_6">包使用</h3>
+<p>与模块导入相比, package 的导入多了 Intra-package References. 也就是在一个包中的模块或者子包可以相互导入, 类似于相对路径.</p>
+<p>设 package A 结构如下</p>
+<p><code>python 
+A/
+    __init__.py
+    B.py
+    C/
+        __init__.py
+        D.py
+        E.py
+from . import E  # written in D.py
+from .C import D # written in B.py
+import ..B       # written in D.py</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

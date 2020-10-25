@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Liping Wang">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>read an_easy_path_to_convex_analysis_and_applications - 王礼萍</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">王礼萍</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../ai/cv/overview/" class="dropdown-item">计算机视觉</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/machine_learning/overview/" class="dropdown-item">机器学习</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/data_science/overview/" class="dropdown-item">数据科学</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python&pytorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../python_pytorch/python/overview/" class="dropdown-item">python</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/pytorch/overview/" class="dropdown-item">pytorch</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/crawler/overview/" class="dropdown-item">爬虫</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">数学 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../matrix/overview/" class="dropdown-item">matrix</a>
+</li>
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">optimization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">编程 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../programming/minor_languages/overview/" class="dropdown-item">语言</a>
+</li>
+                                    
+<li>
+    <a href="../../../programming/tex/overview/" class="dropdown-item">tex</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&mac <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../linux_mac/mac/overview/" class="dropdown-item">mac</a>
+</li>
+                                    
+<li>
+    <a href="../../../linux_mac/linux/overview/" class="dropdown-item">Linux</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/wangkingkingking/edit/master/docs/math/optimization/read-an-easy-path-to-convex-analysis-and-applications.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">第一章</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>感谢 njw 同学推荐的  an_easy_path_to_convex_analysis_and_applications. </p>
+<!--more-->
+
+<h1 id="_1">第一章</h1>
+<h3 id="bolzano-weierstrass-theorem">Bolzano-Weierstrass theorem</h3>
+<p>​   $R^n$ 中有界序列都有收敛子序列</p>
+<hr />
+<h3 id="_2">紧</h3>
+<p>$R^n$ 中集合紧(compact),  $\iff$ 有界闭</p>
+<hr />
+<h3 id="proposition-113">Proposition 1.13</h3>
+<p>A,B are two subsets of $R^n$ </p>
+<ol>
+<li>If A or B is open, then A+B is open</li>
+<li>If A is closed and B is compact,  then A+B is closed </li>
+</ol>
+<p><em>Proof</em>: 1. 设 $z = x+y \in A+B$, 不妨设 A 是开集, 则存在邻域 $B_r(x) \subset A$, 断言 $B_r(z)\subset A+B$, 因为任意 $t \in B_r(z)$, $t = t - y + y$, 其中 $ t-y \in B_r(x) \subset A, y \in B$.   </p>
+<ol>
+<li>设 ${x_n+y_n}$ 是 A+B 中的收敛序列, 其中 ${x_n}\subset A, {y_n}\subset B$ . 只需证其极限也在 A+B 中即可. 因为 B 紧, 所以有界, 从而 ${y_n}$ 有界, 又 ${x_n+y_n}$ 有界, 从而 ${x_n}$ 有界, 由 Weierstrass 定理, ${x_n}$ 有收敛子列 ${x_{m_n}}$ ,  ${y_{m_n}}$ 又有收敛子列. 故可不妨设  ${x_{m_n}}$ ,  ${y_{m_n}}$ 都收敛, 且分别收敛到 $x,y$ . 则 ${x_{m_n}+y_{m_n}}$ 收敛到 $x+y$, 所以${x_n+y_n}$  也收敛到 $x+y\in A+B$ . 所以 A+B 闭. </li>
+</ol>
+<p><em>相同的方法可以用到练习 1.1</em></p>
+<hr />
+<h3 id="weierstrass">Weierstrass 存在性定理</h3>
+<p>设$f: \Omega \rightarrow R$ 连续, $\Omega \subset R^n$ 非空紧, 则存在 $u,v $ s.t </p>
+<ul>
+<li>$f(u) = inf f(x)$</li>
+<li>$f(v) =supf(x)$ </li>
+</ul>
+<hr />
+<h4 id="proposition-129">Proposition 1.29</h4>
+<p>若 $\Omega \subset R^n$ 是凸集, 则 $\text{int} \Omega, \overline{\Omega}$ 也是凸集. </p>
+<p>后一部分简单, 只证明前一部分.</p>
+<p>设 $a,b \in \text{int}\Omega $, 则存在 $a$ 的邻域 $V\subset \Omega$, 则 $\lambda a + (1-\lambda )b \in \lambda V+b\subset \text{int} \Omega$</p>
+<hr />
+<h3 id="lemma-130">Lemma 1.30 的证明</h3>
+<p>{%asset_img lemma_1_30.png %}</p>
+<hr />
+<h3 id="proposition-131">Proposition 1.31</h3>
+<p>{% asset_img prop_1_31.png %}</p>
+<hr />
+<h3 id="_3">凸函数的几个等价</h3>
+<p>f is convex function $\iff$</p>
+<ol>
+<li>epi(f) is convex set</li>
+<li>f(x+td) 关于 t 凸</li>
+<li>若 f 可微, 则等价于 f' 非减</li>
+</ol>
+<p><em>Proof of 3</em></p>
+<p>{%asset_img 1_45.png %}</p>
+<hr />
+<p>{%asset_link exercise_1.html \ %}</p>
+<hr>
+ 王礼萍  原创<br>
+ 更多内容请访问 https://wanglp.site <br></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

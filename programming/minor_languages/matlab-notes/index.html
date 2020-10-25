@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Liping Wang">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>matlab_notes - 王礼萍</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">王礼萍</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../ai/cv/overview/" class="dropdown-item">计算机视觉</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/machine_learning/overview/" class="dropdown-item">机器学习</a>
+</li>
+                                    
+<li>
+    <a href="../../../ai/data_science/overview/" class="dropdown-item">数据科学</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python&pytorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../python_pytorch/python/overview/" class="dropdown-item">python</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/pytorch/overview/" class="dropdown-item">pytorch</a>
+</li>
+                                    
+<li>
+    <a href="../../../python_pytorch/crawler/overview/" class="dropdown-item">爬虫</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">数学 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../math/matrix/overview/" class="dropdown-item">matrix</a>
+</li>
+                                    
+<li>
+    <a href="../../../math/optimization/overview/" class="dropdown-item">optimization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">编程 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">语言</a>
+</li>
+                                    
+<li>
+    <a href="../../tex/overview/" class="dropdown-item">tex</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&mac <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../linux_mac/mac/overview/" class="dropdown-item">mac</a>
+</li>
+                                    
+<li>
+    <a href="../../../linux_mac/linux/overview/" class="dropdown-item">Linux</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/wangkingkingking/edit/master/docs/programming/minor_languages/matlab-notes.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">前言</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_2" class="nav-link">帮助文档</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_3" class="nav-link">常用命令</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_4" class="nav-link">特点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_5" class="nav-link">输入与输出</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_7" class="nav-link">作用域</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_8" class="nav-link">随机数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_9" class="nav-link"></a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#use-matlab-in-terminalmac" class="nav-link">use matlab in terminal(mac)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#differences" class="nav-link">Differences</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_10" class="nav-link">矩阵</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#function" class="nav-link">Function</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#index" class="nav-link">Index</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#calculations-for-arrays" class="nav-link">Calculations for arrays</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#plot" class="nav-link">Plot</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#funciton" class="nav-link">funciton</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#file" class="nav-link">file</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>matlab虽然是数学软件, 但据我观察, 学数学的同学用这个的其实并不多, 最多只是在数学建模的那几天, 翻翻文档, 画画图. 另外, matlab 严格说并不能算一门编程语言, 相比之下, 还是学python 划算. </p>
+<!--more-->
+
+<p>本篇有待整理与进一步研究!</p>
+<h1 id="_1">前言</h1>
+<p>但其实学习成本不大, 与其偶尔碰到, 一碰到就慌, 不如花点时间系统学习下. 但是问题是, 现在很多知识, 学了, 但不是经常用到, 等到用的时候已经忘了. Matlab 对我现在来说就是这种情况.  对于这种问题, 我现在的想法是, 提前学, 作好笔记, 重点是记录特殊的地方, 以及遇到问题去哪儿查. 我想这也是知识爆炸时代的学习之道吧.</p>
+<h1 id="_2">帮助文档</h1>
+<pre><code class="language-matlab">help fprintf
+doc fprintf  % 类似 c 的 printf
+lookfor fprintf 
+helpbrowser 
+</code></pre>
+<p>还可以在 matlab 界面右上方搜索 key word , 进行非精确搜索. </p>
+<h1 id="_3">常用命令</h1>
+<pre><code>who                     当前定义的变量名
+whos                    当前定义的变量名
+clear                   清除所有变量
+claer var_name          清除指定变量
+clc                     清屏
+
+</code></pre>
+<h1 id="_4">特点</h1>
+<ul>
+<li>一行语句，如果没有分号结尾。那么matlab 会将结果输出。</li>
+<li>如果一行语句过长。需要在跨越多行来写的话。可以在行末加上三个点</li>
+<li>在交互式窗口,如果要写多行语句, 比如 for 循环后面, 可以在行尾输入shift + enters</li>
+<li>变量名必须以字母开头, 不能以下划线开头</li>
+<li>数字默认为 double 类型 </li>
+<li>单个字符, 字符串都用单引号</li>
+<li>下标从 1 开始, 对于区间是左右都包含. 为了表示最后一个下标, python 中用 -1, matlab 用 end </li>
+<li>下标索引用括号而不是中括号</li>
+<li>调用函数时，如果没有参数，可以省略括号, 但匿名函数必须加括号, 否则返回函数内容 </li>
+<li></li>
+</ul>
+<h1 id="_5">输入与输出</h1>
+<p>Input , disp, fprintf </p>
+<h3 id="_6">文件</h3>
+<p>save , load 适用于矩阵</p>
+<p>fopen 更一般 </p>
+<h3 id="mat">.mat 文件</h3>
+<p>不只保存数据, 还可以保存变量</p>
+<h1 id="_7">作用域</h1>
+<p>script 和 command line 的作用域是共通的</p>
+<h1 id="_8">随机数</h1>
+<p>matlab 每次启动的 seed 都一样</p>
+<h1 id="_9"></h1>
+<h1 id="use-matlab-in-terminalmac">use matlab in terminal(mac)</h1>
+<p><code>/Applications/MATLAB_R2017a.app/bin/matlab -nojvm</code> </p>
+<p>much faster and more fluent than GUI, save RAM at the same time. </p>
+<h1 id="differences">Differences</h1>
+<p>!=   -&gt;  ~= </p>
+<h1 id="_10">矩阵</h1>
+<p>变量, 向量, 矩阵在 matlab 中都是矩阵.</p>
+<p>有三个函数 length, size, numel </p>
+<ol>
+<li>numel 返回元素的个数</li>
+<li>size 返回形状, </li>
+<li>length , 对于 向量或者变量, 返回长度, 也就是元素的个数,矩阵返回行数和列数中的最大值</li>
+</ol>
+<h1 id="function">Function</h1>
+<p>根据 <strong>返回值</strong> 进行函数重载. </p>
+<pre><code class="language-matlab">&gt;&gt; data = [1,2,3,-3]
+data =
+     1     2     3    -3
+&gt;&gt; t = max(data)
+t =
+     3
+&gt;&gt; [t, i] = max(data) % t, i = max(data) not works 
+t =
+     3
+i =
+     3
+</code></pre>
+<h1 id="index">Index</h1>
+<ul>
+<li>
+<p>index starts from 1 , and <code>1:3</code> includes 3</p>
+</li>
+<li>
+<p>Use '( )' rather than '[ ]' </p>
+</li>
+<li>
+<p>Use 'end' rather than -1 in python to indicate the last index on some dimension. Accordingly , end - 1 indicates the second to last. </p>
+</li>
+</ul>
+<h1 id="calculations-for-arrays">Calculations for arrays</h1>
+<ul>
+<li>+ - , etc. can perform elementwise operations </li>
+<li>'<em>' is matrix multiplication.  '</em>*' is elementwise </li>
+</ul>
+<h1 id="plot">Plot</h1>
+<h3 id="basic">basic</h3>
+<ul>
+<li>hold on: keep the figure there to plot a new figure on it </li>
+<li>hold off: </li>
+<li>close all: close all figures </li>
+</ul>
+<h2 id="funciton">funciton</h2>
+<ul>
+<li>plot( ) : plot 2-d figure </li>
+<li>plot3( ): 3-d </li>
+</ul>
+<h3 id="gui-method">GUI method</h3>
+<p>choose variable in workspace and plot, which can generate specifical codes automatically </p>
+<pre><code class="language-matlab">plot(sample, v1, 'ro-', 'LineWidth', 4)
+</code></pre>
+<h1 id="file">file</h1>
+<h3 id="mat-file-save-variables">.mat file: save variables</h3>
+<pre><code class="language-matlab">save filename.mat var1 var2 % or save(filename.mat, var1, var2)
+save filename.mat % save all variables in this workspace
+
+</code></pre>
+<p>the same way for <code>load</code> function </p>
+<h3 id="m-file-script">.m file: script</h3>
+<h3 id="livescript-jupyter-notebook">livescript , 类似 jupyter notebook</h3>
+<p>任何非匿名函数必须在文件中定义。每个此类函数文件都包含一个必需的主函数（最先显示）和任意数目的局部函数（位于主函数后面）。主函数的作用域比局部函数更广。因此，主函数可以从定义这些函数的文件外（例如，从 MATLAB 命令行或从其他文件的函数中）调用，而局部函数则没有此功能。局部函数仅对其自己的文件中的主函数和其他局部函数可见。</p>
+<hr>
+ 王礼萍  原创<br>
+ 更多内容请访问 https://wanglp.site <br></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
