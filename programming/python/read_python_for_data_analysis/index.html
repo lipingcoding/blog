@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="lipingcoding">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Read python for data analysis - Lipingcoding</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Lipingcoding</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Research <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../research/gnn/overview/" class="dropdown-item">GNN</a>
+</li>
+                                    
+<li>
+    <a href="../../../research/recsys/overview/" class="dropdown-item">RecSys</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programming <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">python</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/lipingcoding/blog/edit/master/docs/programming/python/read_python_for_data_analysis.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#ipython" class="nav-link">第三章: ipython 的使用</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#numpy" class="nav-link">第四章: Numpy使用</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="ipython">第三章: ipython 的使用</h2>
+<ol>
+<li>object introspection</li>
+</ol>
+<p>功能: 打印对象的相关信息</p>
+<p>用法:</p>
+<p>​   对象+?</p>
+<p>​   对象+??, 如果可能, 还会输出源码</p>
+<p>? 还可以结合通配符 * 用于检索</p>
+<ol>
+<li>%run</li>
+</ol>
+<p>如果在普通的python命令行中, 要想执行某个python脚本, 必须先退出python环境, 然后再执行. 在ipython中不必这样. %run 后接要执行的脚本即可.</p>
+<p>但是需要注意命名空间的问题: 要执行的脚本能否访问interactive(就是ipython执行的那个空间)中的变量, 还有脚本执行后, 脚本中的变量能否在ipython中访问. </p>
+<p>这个问题可以在ipython中输入 %run? 查看 %run命令的帮助文档.</p>
+<ol>
+<li>%paste  or %cpaste</li>
+</ol>
+<p>由于在命令行中粘贴相当于一行一行执行, 一旦遇到空行, python解释器就认为缩进结束, 然后就报错 Indentation error . </p>
+<p>%paste 和 %cpaste 两个命令可以直接执行clipboard中的代码</p>
+<p>区别在于 %cpaste, 粘贴后不直接运行, 你试试就知道了</p>
+<p>像这样以%开关的命令叫magic命令, 输入 %magic, 可以查看到所有的magic命令.</p>
+<ol>
+<li>类似bash的快捷键(基于mac)</li>
+</ol>
+<p>Ctrl + P : 向前搜索命令历史中以当前输入文本开头的命令</p>
+<p>Ctrl + N:  向后搜索命令历史中以当前输入文本开头的命令</p>
+<p>Ctrl + A: 将光标移到行首</p>
+<p>Ctrl + E: 将光标移到行尾</p>
+<p>Ctrl + U: 删除从光标到行尾</p>
+<p>Ctrl + K: 删除从光标到行首</p>
+<p>Ctrl + L 或者 Cmd + K: 清屏</p>
+<h2 id="numpy">第四章: Numpy使用</h2>
+<ol>
+<li>ndarray</li>
+</ol>
+<p>是numpy最主要的操作对象.</p>
+<p>属性:</p>
+<p>​    .shape</p>
+<p>​    .type</p>
+<p>生成:</p>
+<p>​    array</p>
+<p>​        </p>
+<p>```python
+   In [2]: np.array([[2,3],[4,5]])
+   Out[2]: 
+   array([[2, 3],
+          [4, 5]])</p>
+<p>In [8]: a = [[2,3],[4,5]]</p>
+<p>In [9]: m = np.array(a)</p>
+<p>In [10]: a
+   Out[10]: [[2, 3], [4, 5]]</p>
+<p>In [11]: m
+   Out[11]: 
+   array([[2, 3],
+          [4, 5]])
+   ```</p>
+<p>​    注意到ndarray 在内部显示以及函数中却是 array   </p>
+<p>​    传入一个参数后, array 函数是复制参数list, 而不是将list转化成array.</p>
+<p>​    asarray</p>
+<p>```python
+   In [12]: a
+   Out[12]: [[2, 3], [4, 5]]</p>
+<p>In [13]: m = np.asarray(a)</p>
+<p>In [14]: a
+   Out[14]: [[2, 3], [4, 5]]</p>
+<p>In [15]: m
+   Out[15]: 
+   array([[2, 3],
+          [4, 5]])
+   ```</p>
+<p>​    前缀 as 给人感觉是直接转化, 但还是复制.</p>
+<p>​    arange: 类似python中的range, 但是返回 array</p>
+<p>​    ones, oneslike</p>
+<p>```python
+   In [20]: t = np.ones((2,3))</p>
+<p>In [21]: s = np.ones_like(t)</p>
+<p>In [22]: t
+   Out[22]: 
+   array([[1., 1., 1.],
+          [1., 1., 1.]])</p>
+<p>In [23]: s
+   Out[23]: 
+   array([[1., 1., 1.],
+          [1., 1., 1.]])</p>
+<p>In [24]: np.ones(t.shape)
+   Out[24]: 
+   array([[1., 1., 1.],
+          [1., 1., 1.]])</p>
+<p>```</p>
+<p>​    下面三组函数完全类似</p>
+<p>​    zeros, zeroslike</p>
+<p>​    empty, emptylike</p>
+<p>​    eye, identity</p>
+<ol>
+<li>索引和切片</li>
+</ol>
+<p>索引是指通过指定下标, 获取元素值.</p>
+<p>切片是指通过指定一个连续的下标范围, 获取元素值.</p>
+<p>注意不管是索引还是切片, 获得的都是引用, 因为numpy 是为大数据设计的, 如果都复制, 会造成巨大的开销. </p>
+<p>当然, 你也可以显式地获得一个copy的副本, 这就涉及到深拷贝与浅拷贝的问题, 以后再研究下.</p>
+<p>多维数组下标索引时, 可以用索引列表</p>
+<p>```python 
+   In [35]: m
+   Out[35]: 
+   array([[2, 3],
+          [4, 5]])</p>
+<p>In [36]: m[1,1] # 相当于 m[1][1], 这很重要
+   Out[36]: 5</p>
+<p>In [37]: m[1][1]
+   Out[37]: 5
+   ```</p>
+<p>这在array维度较高时, 写起来较方便. </p>
+<p>索引列表也可以用在切片中</p>
+<p>```python 
+   In [41]: m
+   Out[41]: 
+   array([[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]])</p>
+<p>In [42]: m[1:, :2]
+   Out[42]: 
+   array([[4, 5],
+          [7, 8]])</p>
+<pre><code>
+
+
+
+
+3.布尔型索引
+
+```python 
+In [14]: index
+Out[14]: array([0, 1, 2, 3, 4])
+
+In [15]: data
+Out[15]: 
+array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14],
+       [15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24]])
+
+In [30]: index &gt; 2
+Out[30]: array([False, False, False,  True,  True])
+
+In [31]: data[index &gt; 2]
+Out[31]: 
+array([[15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24]])
+
+</code></pre>
+<p>多个逻辑条件怎么办呢?</p>
+<p>```python 
+In [32]: data[index &gt; 2 and index &lt;4]</p>
+<hr />
+<p>ValueError                                Traceback (most recent call last)
+<ipython-input-32-81cece05842b> in <module>()
+----&gt; 1 data[index &gt; 2 and index &lt;4]</p>
+<p>ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</p>
+<pre><code>
+根据报错信息, python 是不支持 piece-wise 的逻辑运算的, 但是可以利用 &amp; , | 达到类似目的, 注意: &amp; , | 其实是位运算. 这不正是将数组元素看成了数组的位了吗! 非常合理!
+
+```python 
+In [33]: data[(index &gt; 2) &amp; (index &lt;4)]
+Out[33]: array([[15, 16, 17, 18, 19]])
+
+
+# 位运算
+In [34]: 5 &amp; 6
+Out[34]: 4
+
+</code></pre>
+<ol>
+<li>利用整数数组索引</li>
+</ol>
+<p>看个例子就明白了.</p>
+<p>```python 
+   In [35]: data = np.arange(32).reshape(8,4)</p>
+<p>In [36]: data
+   Out[36]: 
+   array([[ 0,  1,  2,  3],
+          [ 4,  5,  6,  7],
+          [ 8,  9, 10, 11],
+          [12, 13, 14, 15],
+          [16, 17, 18, 19],
+          [20, 21, 22, 23],
+          [24, 25, 26, 27],
+          [28, 29, 30, 31]])</p>
+<p>In [37]: data[ [3, 1, 0, 5] ] #传入的是一个整数数组
+   Out[37]: 
+   array([[12, 13, 14, 15],
+          [ 4,  5,  6,  7],
+          [ 0,  1,  2,  3],
+          [20, 21, 22, 23]])</p>
+<p>```</p>
+<p>再看</p>
+<p>```python 
+In [43]: data
+Out[43]: 
+array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15],
+       [16, 17, 18, 19],
+       [20, 21, 22, 23],
+       [24, 25, 26, 27],
+       [28, 29, 30, 31]])</p>
+<p>In [44]: data[[3,1,0,5],[0,1,2,3]] 
+Out[44]: array([12,  5,  2, 23])</p>
+<pre><code>
+我刚开始以为 `data[[3,1,0,5],[0,1,2,3]] = data[[3,1,0,5]][[0,1,2,3]]`,
+
+但是不能这么理解
+
+```python 
+In [52]: data[[3,1,0,5]][[0,1,2,3]]
+Out[52]: 
+array([[12, 13, 14, 15],
+       [ 4,  5,  6,  7],
+       [ 0,  1,  2,  3],
+       [20, 21, 22, 23]])
+</code></pre>
+<p>因为 <code>[ , ]</code> 中, 逗号隔开的是不同的 axes, 但是 <code>[ ][ ]</code>中, 两个中括号的运算是先后关系. </p>
+<p>注意, 利用整数数组索引, 会拷贝,  而不是引用.</p>
+<ol>
+<li>np.where</li>
+</ol>
+<p>通过两个例子即可掌握其用法</p>
+<p>```python 
+   In [65]: x = np.array([2,3, -1])</p>
+<p>In [66]: y = np.array([0,2,-3])</p>
+<p>In [67]: np.where(x&gt;y, x, y)
+   Out[67]: array([ 2,  3, -1])</p>
+<p>In [68]: np.where(x&gt;0, 1, -1)
+   Out[68]: array([ 1,  1, -1])
+   ```</p>
+<p>6.np 中还有随机数, 线性代数, 集合运算等函数</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

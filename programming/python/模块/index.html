@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="lipingcoding">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>模块 - Lipingcoding</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Lipingcoding</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Research <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../research/gnn/overview/" class="dropdown-item">GNN</a>
+</li>
+                                    
+<li>
+    <a href="../../../research/recsys/overview/" class="dropdown-item">RecSys</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programming <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../overview/" class="dropdown-item">python</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/lipingcoding/blog/edit/master/docs/programming/python/模块.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">何为模块</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#pip" class="nav-link">pip 安在哪里</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">打包</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">安装</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>正在使用 python 的你, 想必一定经过了如下阶段</p>
+<ol>
+<li>开始 import 各种包</li>
+<li>学会 pip install 各种包</li>
+<li>自己开始写 module, 使用时 <code>from xxx import</code></li>
+<li>开始将多个 module 文件封装成 package, 甚至开始写 <code>__init__.py</code></li>
+</ol>
+<p>是时候弄清楚如下问题了</p>
+<ul>
+<li>pip install 安装的包都放在哪儿</li>
+<li>能不能在调用自己的 module 或者 package 时像调用 sys, numpy 一样, 不需要考虑路径, 在哪儿都可以调用</li>
+<li>如何将自定义的包安装到系统中</li>
+<li>如何将自己的开发的包上传到 pypi 上, 让全世界的人都可以使用</li>
+</ul>
+<p>接下来将一一回答上述问题.</p>
+<h2 id="_1">何为模块</h2>
+<p>在 python 中, 模块的定义容易混淆, 但是包 (package) 的理解比较一致, 就是一个包含了一个 <code>__init__.py</code> 的目录. 模块(module) 有广义和狭义之分, 狭义的 module 就是指单个 .py 文件, 广义的 module 分为</p>
+<ul>
+<li>单个 .py 文件, 也即狭义的 module</li>
+<li>package</li>
+</ul>
+<p>实际安装的模块基本不太可能是单个 .py 文件, 所以我们一般指的模块都是指广义的模块. 所以在 python 中, 我们通常说的模块, 其实相当于别的语言中的包(package), 但是 package 这个术语已经被用了, 所以我们只能用模块了.</p>
+<h2 id="pip">pip 安在哪里</h2>
+<p>初学者在配环境时, 一般是根据网上博客, 或者官网说明, 按步就班来的, 出了问题就 baidu 下, 反正最后总算是弄成了, 能用就行, 也不知道安在哪里. 长此以往就会出现各种问题, 特别是利用 anaconda 创建多个环境的时候, 很多用户根本不知道自己用的是哪个 python, 哪个 pip.</p>
+<pre><code>conda create -n new_env
+source activate new_env
+</code></pre>
+<p>不错, 你确实得到了一个新的环境, 可是你如果</p>
+<pre><code>which python
+</code></pre>
+<p>你会发现, 并不是 new_env 中的那个 python, 同样的, pip 也是. 为什么呢, 自己好好琢磨吧!</p>
+<p>接下来, 回归正题, 我们说下 python 中可以直接 import 的那些模块都放在哪? 有两种方法:</p>
+<pre><code>import sys
+
+#方法一
+print(sys.path) 
+# ['', '/anaconda3/envs/py37/lib/python37.zip', '/anaconda3/envs/py37/lib/python3.7', '/anaconda3/envs/py37/lib/python3.7/lib-dynload', '/anaconda3/envs/py37/lib/python3.7/site-packages']
+
+#方法二
+#比如你想查看 numpy 安在哪
+import numpy
+print(sys.modules['numpy']) # sys.modules 返回当前引用的所有模块, 是一个字典
+#&lt;module 'numpy' from '/anaconda3/envs/py37/lib/python3.7/site-packages/numpy/__init__.py'&gt;
+</code></pre>
+<p>如果你多做些实验, 你会发现: 你通过 pip 安装的模块都在所用 python 环境中一个 site-packages 目录下.</p>
+<h2 id="_2">打包</h2>
+<p>想必你肯定写过一些简单的模块, 比如:</p>
+<pre><code>.
+├── main.py
+└── util.py
+</code></pre>
+<p>你在 util.py 在写了若干辅助函数, 想在 main.py 中调用, 一般你需要将两个文件放在同一个目录下, 或者提供路径. 下次编程的时候, 你要是再想利用 util.py 中的函数, 你又得复制一份. 这还只是单个模块的情况, 要是涉及到 package, 长此以往, 维护起来, 实在不方便, 所以你会想: 能不能, 也将我们自定义的模块安装到系统中, 像使用 numpy 一样使用, 不需要管模块到底在哪? 当然是可以的.</p>
+<p>如果你只是想在本地安装, 那么你会用 setuptools 写好 setup.py 就好了, 然后运行 setup.py 文件就可以了. 如果你想向世界献出一点爱, 想让全世界的人都用上你的代码, 那么你就得提供正规的版本号, LICENSE文件. 但不管怎样, 你都需要将程序打出安装包, 目前主流方法是使用 setuptools 模块.</p>
+<h3 id="setuptools">setuptools</h3>
+<p>setuptools 是一个打包工具, 是 distutils 的增强版. 所谓打包, 就是指制作安装包. 安装包分为两类</p>
+<ul>
+<li>源码安装包</li>
+<li>二进制安装包</li>
+</ul>
+<p>当然, 二进制安装包安装起来会更快. 二进制安装包有很多种, 常见的有</p>
+<ul>
+<li>wheel</li>
+<li>egg</li>
+</ul>
+<p>现在推荐的是 wheel.</p>
+<p>为了利用 setuptools 打包, 你首先需要写一个 setup.py, 一个最简单的例子如下:</p>
+<pre><code>from setuptools import setup
+
+setup(
+    name='firstApp', # 应用名
+    version='0.0.1', # 版本号
+    packages=['myapp'], # 包括在安装包内的 Python 包
+)
+</code></pre>
+<p>实际用的 setup.py 可能比较复杂, 但主要功能是一样的, 最核心的是 packages, 即要封装的模块有哪些, 然后再提供诸如版本号, 作者等信息.</p>
+<h3 id="_3">打包</h3>
+<p>比如你的文件结构如下</p>
+<pre><code>.
+├── myapp
+│   ├── __init__.py
+│   └── greet.py
+└── setup.py
+</code></pre>
+<p>那么</p>
+<pre><code>python setup.py sdist #得到 source distribution
+python setup.py bdist #得到 built distribution
+python setup.py bdist_egg # 指定built distribution的格式为 egg
+python setup.py bdist_wheel# 指定built distribution的格式为 wheel
+</code></pre>
+<p>上面这四种方法都可以实现打包, 得到的文件结构不太一样, 但都会得到一个 dist 目录, 这个目录下就是你需要提供给安装者的全部内容.</p>
+<h2 id="_4">安装</h2>
+<p>前面我们说过安装包分为源码包和二进制包, 相应地, 安装方式也分为两种, 从源码安装和利用二进制文件安装.</p>
+<h3 id="_5">从源码安装</h3>
+<p>将源码安装包解压后, 运行 <code>python setup.py build install</code> 即可. 为了后面的需要, 我们有必要对这个安装过程进行更加深入的介绍.</p>
+<p><code>python setup.py build install</code> 这句命令到底做了什么? 我们经常看到这种复合命令, 其实就是先 build 再 install.</p>
+<p>build 就是将要安装的文件放在 build 目录下. install 就是将 build/lib下的内容复制到 site-packages 中.</p>
+<p>但是在开发中, 你可能会不断修改代码, 如果按照上面那种做法,你需要反复 build-install, 而且对于特别大的模块, 拷贝非常耗费时间. 幸亏, 有一条命令叫 <code>python setup.py build develop</code> , 它的用处在于, build 之后, 并不会拷贝, 而是在 site-packages 下建立到 build 目录的链接.</p>
+<h3 id="_6">从二进制文件安装</h3>
+<pre><code class="language-shell">pip install xxx.whl
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
