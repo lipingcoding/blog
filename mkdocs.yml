@@ -1,7 +1,7 @@
-site_name: 王礼萍
+site_name: Lipingcoding
 theme: cyborg
-repo_url: https://github.com/wangkingkingking/
-site_author: Liping Wang
+repo_url: https://github.com/lipingcoding/blog
+site_author: lipingcoding
 nav:
 - Home: index.md
 - AI: 
@@ -29,5 +29,5 @@ nav:
 #- 远方: distance/overview.md
 
 
-markdown_extensions:
-  - pymdownx.arithmatex
+# markdown_extensions:
+#   - pymdownx.arithmatex
